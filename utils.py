@@ -12,7 +12,7 @@ def resnet50_predict(model, img):
     predicted ImageNet class for image at specified path
     
     Args:
-        img_path: path to an image
+        img: image vector
         
     Returns:
         Index corresponding to resnet-50 model's prediction
@@ -21,6 +21,7 @@ def resnet50_predict(model, img):
     transform = transforms.Compose([transforms.Resize(255),
                                     transforms.CenterCrop(224),
                                     transforms.ToTensor()])
+
     img_t = transform(img)
     img = torch.unsqueeze(img_t,0)
     model.cpu()

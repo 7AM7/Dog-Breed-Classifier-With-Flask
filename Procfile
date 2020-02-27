@@ -1,2 +1,2 @@
-web: gunicorn app:app --log-level debug 
+web: gunicorn classifier:app --log-level debug 
 
