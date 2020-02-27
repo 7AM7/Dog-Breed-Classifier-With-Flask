@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from class_names import class_names
 import torchvision.transforms as transforms
 
-def resnet50_predict(model, img_path):
+def resnet50_predict(model, img):
     '''
     Use pre-trained resnet-50 model to obtain index corresponding to 
     predicted ImageNet class for image at specified path
@@ -21,7 +21,6 @@ def resnet50_predict(model, img_path):
     transform = transforms.Compose([transforms.Resize(255),
                                     transforms.CenterCrop(224),
                                     transforms.ToTensor()])
-    img = Image.open(img_path)
     img_t = transform(img)
     img = torch.unsqueeze(img_t,0)
     model.cpu()
@@ -32,17 +31,16 @@ def resnet50_predict(model, img_path):
     
     return index # predicted class index
 
-def face_detector(face_cascade, img_path):
-    img = cv2.imread(img_path)
+def face_detector(face_cascade, img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray)
     return len(faces) > 0
 
-def dog_detector(model, img_path):
-    index = resnet50_predict(model, img_path)
+def dog_detector(model, img):
+    index = resnet50_predict(model, img)
     return (index >= 151) & (index <= 268)   # true/false
 
-def predict_breed(model, img_path):
+def predict_breed(model, img):
     # load the image and return the predicted breed
     transform = transforms.Compose([
         transforms.Resize(256),
@@ -50,7 +48,6 @@ def predict_breed(model, img_path):
         transforms.ToTensor(),
         transforms.Normalize([0.485, 0.456, 0.406],
                              [0.229, 0.224, 0.225])])
-    img = Image.open(img_path)
     img_t = transform(img)
     img = torch.unsqueeze(img_t,0)
     model.cpu()
