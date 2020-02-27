@@ -1,5 +1,5 @@
 # Dog Breed Classifier With Flask API
-This project classifies dog breeds into one of **133** dog breeds using Pytorch
+This project classifies dog breeds into one of **133** dog breeds using Pytorch & Flask API
 
 
 # Installation
@@ -11,4 +11,4 @@ pip install -r requirements.txt
 ```
 
 # Web App
-There is also a web application deployed on [Heroku](https://dog-classification.herokuapp.com/) you can also try it and have fun :smile:
+There web application deployed on [Heroku](https://dog-classification.herokuapp.com/) you can also try it and have fun :smile:
