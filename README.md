@@ -1,9 +1,8 @@
 # Dog Breed Classifier With Flask API
-This project classifies dog breeds into one of **133** dog breeds using Pytorch
+This project classifies dog breeds into one of **133** dog breeds using Pytorch and Flask API
 
 
 # Installation
-## Using pip
 ```
 git clone https://github.com/7AM7/Dog-Breed-Classifier-With-Flask
 cd Dog-Breed-Classifier-With-Flask
