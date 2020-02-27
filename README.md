@@ -10,4 +10,4 @@ pip install -r requirements.txt
 ```
 
 # Web App
-There is also a web application deployed on [Heroku](https://dog-classification.herokuapp.com/) you can also try it and have fun :smile:
+There is also a web application deployed on [Heroku](https://dog-breed-classifier-v2.herokuapp.com/) you can also try it and have fun :smile:
