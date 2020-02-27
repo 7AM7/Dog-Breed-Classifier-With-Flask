@@ -38,11 +38,11 @@ def upload_file():
     image_bytes = file.read()
     pil_image = Image.open(io.BytesIO(image_bytes))
 
-    if (dog_detector(pil_image)):
+    if (dog_detector(resnet50, pil_image)):
         dog_breed = predict_breed(model, pil_image)
         return jsonify ('This a dog picture of breed:{}'.format(dog_breed))
 
-    elif (face_detector(pil_image)):
+    elif (face_detector(face_cascade, pil_image)):
         dog_breed = predict_breed(model, pil_image)
         return jsonify('Hello Human You resemble dog breed of {}'.format(dog_breed))
         
